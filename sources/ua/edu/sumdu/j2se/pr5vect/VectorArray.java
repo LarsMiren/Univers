@@ -19,7 +19,7 @@ public class VectorArray implements ArrayVector {
     }
 
     @Override
-    public void set(double... elements) {
+    public void set(double... elements) throws NullPointerException {
         arr = new double[elements.length];
 //        if(elements.length > arr.length) {
 //            double[] m = new double[arr.length + 50];
@@ -29,7 +29,7 @@ public class VectorArray implements ArrayVector {
 //            arr = m;
 //        }
         if (elements == null) {
-            return;
+            throw new NullPointerException();
         }
         for (int i = 0; i < elements.length; i++) {
             arr[i] = elements[i];
@@ -144,11 +144,12 @@ public class VectorArray implements ArrayVector {
     }
 
     @Override
-    public double getNorm() {
+    public double getNorm() throws ArithmeticException {
         double m = 0;
         for (int i = 0; i < arr.length; i++) {
             m += arr[i] * arr[i];
         }
+        if (m < 0) throw new ArithmeticException("Sqrt < 0");
         return Math.sqrt(m);
     }
 }

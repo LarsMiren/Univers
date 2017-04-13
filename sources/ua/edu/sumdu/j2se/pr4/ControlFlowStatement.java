@@ -1,6 +1,5 @@
 package ua.edu.sumdu.j2se.pr4;
 
-import java.lang.reflect.Array;
 
 /**
  * Created by God on 23.02.2017.
@@ -14,7 +13,7 @@ public class ControlFlowStatement implements ControlFlowStatements2 {
     }
 
     @Override
-    public String decodeMark(int mark) {
+    public String decodeMark(int mark) throws IllegalArgumentException {
         switch ( mark ) {
             case 1:
                 return "Fail";
@@ -27,7 +26,7 @@ public class ControlFlowStatement implements ControlFlowStatements2 {
             case 5: 
                 return "Excellent";
             default:
-                return "\"Error\"";
+                throw new IllegalArgumentException();
         }
     }
 
