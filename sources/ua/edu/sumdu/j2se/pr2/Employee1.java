@@ -1,5 +1,7 @@
 package ua.edu.sumdu.j2se.pr2;
 
+import ua.edu.sumdu.j2se.pr7.FieldLengthLimitException;
+
 public class Employee1 implements Employee{
 	private int salary = 1000;
 	private String firstName;
